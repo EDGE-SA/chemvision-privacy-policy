@@ -80,8 +80,8 @@
     </p>
 
     <div class="highlight">
-      <strong>Resumen:</strong> El sistema es una plataforma IoT industrial de telemetría,
-      dosificación y mantenimiento. Los únicos datos personales almacenados son las credenciales
+      <strong>Resumen:</strong> El sistema es una plataforma IoT industrial de telemetría y 
+      gestión de puntos de inyección de productos químicos. Los únicos datos personales almacenados son las credenciales
       de acceso de los usuarios autorizados (nombre, email, rol). Todos los demás datos son
       operativos e industriales. La infraestructura está alojada en un entorno dedicado
       exclusivamente a Pluspetrol, sin compartir datos con otros clientes de EDGE SA.
@@ -118,7 +118,7 @@
         </tr>
         <tr>
           <td><strong>Infraestructura cloud (GCP)</strong></td>
-          <td>Almacena la telemetría histórica, los últimos reportes por dispositivo y expone servicios de exportación y reportes. Proyecto dedicado exclusivamente a Pluspetrol.</td>
+          <td>Almacena la telemetría histórica, y expone servicios de exportación y reportes. Proyecto dedicado exclusivamente a Pluspetrol.</td>
         </tr>
         <tr>
           <td><strong>Dispositivos de campo</strong></td>
@@ -134,7 +134,7 @@
     <p>El sistema almacena únicamente los datos estrictamente necesarios para autenticación y trazabilidad operativa:</p>
     <ul>
       <li><strong>Nombre completo y email corporativo:</strong> Pre-registrados por EDGE SA. Se utilizan para autenticación, asignación de rol y asociación de reportes con el técnico responsable.</li>
-      <li><strong>Rol asignado:</strong> Determina las vistas y acciones disponibles en la app y el dashboard. Embebido en el token de sesión al momento del login.</li>
+      <li><strong>Rol asignado:</strong> Determina las vistas y acciones disponibles en el dashboard. Embebido en el token de sesión al momento del login.</li>
       <li><strong>Token de sesión:</strong> Almacenado de forma cifrada en el dispositivo móvil durante la sesión activa. Eliminado al cerrar sesión o desinstalar la app.</li>
     </ul>
 
@@ -146,13 +146,12 @@
     <ul>
       <li>Checklists de inspección de equipos (estado de válvulas, contenedores, conexiones, etiquetas, etc.).</li>
       <li>Datos de válvulas de seguridad (presión de apertura, estado, fecha de revisión).</li>
-      <li>Reportes de reposición de producto químico.</li>
-      <li>Información de dosificación por punto de tratamiento.</li>
+      <li>Reportes de reposición y mantenimiento de puntos de inyeccion de producto químico.</li>
       <li>Coordenadas GPS del lugar donde se realizó cada tarea (solo mientras la app está en uso).</li>
     </ul>
 
     <h3>3.4 Datos de configuración de dispositivos</h3>
-    <p>Parámetros técnicos de calibración de los sensores (coeficientes de tanque, offsets, umbrales de alarma). Se almacenan en el backend IoT y se actualizan automáticamente de forma periódica.</p>
+    <p>Parámetros técnicos de calibración de los sensores (coeficientes de tanque, offsets, umbrales de alarma). Se almacenan en el backend IoT.</p>
 
     <h3>3.5 Alertas y estadísticas operativas</h3>
     <ul>
@@ -164,7 +163,7 @@
     <ul>
       <li>Datos de contacto personal no vinculados a la entidad corporativa.</li>
       <li>Información financiera o de pago.</li>
-      <li>Ubicación en segundo plano (background location).</li>
+      <li>Ubicación persistente en segundo plano (background location).</li>
       <li>Audio, video o imágenes almacenadas.</li>
       <li>Datos de comportamiento para publicidad o perfilado.</li>
     </ul>
@@ -176,8 +175,8 @@
       <li>Monitoreo en tiempo real de dispositivos de campo.</li>
       <li>Cálculo automático de métricas derivadas (presión, caudal diario, columna de agua).</li>
       <li>Almacenamiento histórico de telemetría para análisis y auditoría.</li>
-      <li>Gestión y trazabilidad de reportes de mantenimiento.</li>
-      <li>Acceso rápido al último reporte por dispositivo mediante código QR.</li>
+      <li>Gestión y trazabilidad de reportes de mantenimiento y reposicion.</li>
+      <li>Acceso rápido al último reporte por punto de inyeccion.</li>
       <li>Envío de alertas automáticas ante eventos críticos.</li>
       <li>Generación de reportes operativos periódicos.</li>
       <li>Exportación de datos históricos a solicitud del cliente.</li>
@@ -210,12 +209,6 @@
       Política: <a href="https://cloud.google.com/privacy" target="_blank">cloud.google.com/privacy</a>.
     </p>
 
-    <h3>Myriota (conectividad satelital)</h3>
-    <p>
-      Proveedor de conectividad satelital para dispositivos en zonas sin cobertura 4G. Los mensajes
-      de telemetría se transmiten cifrados y son autenticados mediante JWT al recibirlos en el backend.
-    </p>
-
     <p>No se utilizan SDKs de publicidad, analítica de terceros ni librerías de tracking.</p>
 
     <!-- ══════════════════════════════════════ -->
@@ -224,7 +217,6 @@
     <h3>7.1 Datos en tránsito</h3>
     <ul>
       <li><strong>HTTPS / TLS 1.2–1.3:</strong> Todas las comunicaciones entre la app móvil, el dashboard web y el backend.</li>
-      <li><strong>MQTT sobre TLS (puerto 8883):</strong> Telemetría de dispositivos 4G hacia el backend.</li>
       <li><strong>Webhook HTTPS autenticado:</strong> Mensajes satelitales hacia el backend.</li>
     </ul>
 
@@ -262,9 +254,8 @@
       </thead>
       <tbody>
         <tr><td>Telemetría histórica</td><td>Indefinida</td></tr>
-        <tr><td>Reportes de mantenimiento</td><td>Indefinida (mínimo 5 años por obligaciones regulatorias industriales)</td></tr>
-        <tr><td>Último reporte por dispositivo</td><td>Actualizado en cada nuevo reporte (retención indefinida)</td></tr>
-        <tr><td>Estado de dispositivos en backend IoT</td><td>180 días (parámetros críticos se actualizan automáticamente para evitar pérdida)</td></tr>
+        <tr><td>Reportes de mantenimiento</td><td>Indefinida</td></tr>
+        <tr><td>Estado de dispositivos en backend Losant IoT</td><td>180 días (parámetros críticos se actualizan automáticamente para evitar pérdida)</td></tr>
         <tr><td>Tokens de sesión</td><td>Duración de la sesión activa. Eliminados al cerrar sesión o desinstalar la app.</td></tr>
         <tr><td>Logs de infraestructura cloud</td><td>30 días por defecto (configurable)</td></tr>
         <tr><td>Logs de diagnóstico de la app</td><td>Hasta 24 meses</td></tr>
@@ -274,8 +265,7 @@
     <!-- ══════════════════════════════════════ -->
     <h2>10. Exportación y eliminación de datos</h2>
     <p>
-      El sistema permite exportar la totalidad de los datos históricos en formato estructurado
-      (CSV/JSON) a solicitud del cliente.
+      El sistema permite exportar la totalidad de los datos históricos en formato estructurado a solicitud del cliente.
     </p>
     <p>Ante la finalización del acuerdo con Pluspetrol:</p>
     <ul>
@@ -305,7 +295,6 @@
       solo los siguientes puertos salientes:
       <ul style="margin-top:8px">
         <li><strong>443 (HTTPS/TLS):</strong> App móvil, dashboard web y comunicaciones con el backend.</li>
-        <li><strong>8883 (MQTT/TLS):</strong> Telemetría de dispositivos 4G de campo.</li>
       </ul>
     </div>
 
@@ -325,11 +314,6 @@
           <td><strong>Ubicación precisa</strong></td>
           <td>Registro de coordenadas GPS de cada tarea de mantenimiento para trazabilidad operativa.</td>
           <td>Solo mientras la app está en primer plano y una tarea está activa.</td>
-        </tr>
-        <tr>
-          <td><strong>Vibración</strong></td>
-          <td>Feedback háptico al confirmar acciones.</td>
-          <td>Al confirmar acciones dentro de la app.</td>
         </tr>
         <tr>
           <td><strong>Tareas en segundo plano</strong></td>
@@ -376,7 +360,7 @@
     </ul>
 
     <footer>
-      &copy; 2026 EDGE SA &mdash; Sistema de Gestión de Tratamientos Químicos &mdash; Pluspetrol &mdash; App: com.edgesa.quickcheckapp
+      &copy; 2026 EDGE SA &mdash; Sistema de Gestión de Puntos de Inyección &mdash; App: com.edgesa.quickcheckapp
     </footer>
 
   </body>
