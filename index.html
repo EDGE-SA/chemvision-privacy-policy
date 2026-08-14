@@ -74,7 +74,7 @@
     <p>
       Este documento describe cómo <strong>EDGE SA</strong> ("la Empresa", "Nosotros") recopila,
       procesa, almacena y protege los datos en el contexto del sistema de gestión de tratamientos
-      químicos operado para <strong>Pluspetrol</strong>. El sistema incluye la aplicación móvil
+      químicos. El sistema incluye la aplicación móvil
       QuickCheck, el dashboard web, la plataforma IoT backend, la infraestructura cloud y los
       dispositivos de telemetría de campo.
     </p>
@@ -84,7 +84,7 @@
       gestión de puntos de inyección de productos químicos. Los únicos datos personales almacenados son las credenciales
       de acceso de los usuarios autorizados (nombre, email, rol). Todos los demás datos son
       operativos e industriales. La infraestructura está alojada en un entorno dedicado
-      exclusivamente a Pluspetrol, sin compartir datos con otros clientes de EDGE SA.
+      exclusivamente para cada cliente, sin compartir datos con otros clientes de EDGE SA.
     </div>
 
     <!-- ══════════════════════════════════════ -->
@@ -114,11 +114,11 @@
         </tr>
         <tr>
           <td><strong>Backend IoT (Losant)</strong></td>
-          <td>Plataforma middleware que gestiona la ingesta de telemetría, autenticación de usuarios, alertas automáticas, cálculos derivados y base de datos de dispositivos. Instancia dedicada a Pluspetrol.</td>
+          <td>Plataforma middleware que gestiona la ingesta de telemetría, autenticación de usuarios, alertas automáticas, cálculos derivados y base de datos de dispositivos.</td>
         </tr>
         <tr>
           <td><strong>Infraestructura cloud (GCP)</strong></td>
-          <td>Almacena la telemetría histórica, y expone servicios de exportación y reportes. Proyecto dedicado exclusivamente a Pluspetrol.</td>
+          <td>Almacena la telemetría histórica, y expone servicios de exportación y reportes.</td>
         </tr>
         <tr>
           <td><strong>Dispositivos de campo</strong></td>
@@ -187,7 +187,7 @@
     <h2>5. Aislamiento de datos por cliente</h2>
     <div class="highlight">
       La infraestructura cloud y la instancia del backend IoT son <strong>dedicadas exclusivamente
-      a Pluspetrol</strong>. Los datos de Pluspetrol no se comparten ni mezclan con los de otros
+      a cada cliente</strong>. Los datos no se comparten ni mezclan con los de otros
       clientes de EDGE SA. El acceso está restringido por rol a nivel de token de sesión: cada
       usuario solo puede ver y operar los datos correspondientes a su perfil.
     </div>
@@ -267,7 +267,7 @@
     <p>
       El sistema permite exportar la totalidad de los datos históricos en formato estructurado a solicitud del cliente.
     </p>
-    <p>Ante la finalización del acuerdo con Pluspetrol:</p>
+    <p>Ante la finalización del acuerdo:</p>
     <ul>
       <li>Se entregará el dataset completo en formato exportable antes del borrado definitivo.</li>
       <li>Las cuentas de usuario serán desactivadas de forma inmediata y eliminadas dentro de los 24 meses siguientes, salvo obligación legal de retención mayor.</li>
@@ -287,11 +287,11 @@
     </p>
 
     <!-- ══════════════════════════════════════ -->
-    <h2>12. Acceso remoto al ambiente de Pluspetrol</h2>
+    <h2>12. Acceso remoto al ambiente del cliente</h2>
     <div class="warn">
-      <strong>EDGE SA no requiere acceso remoto al ambiente interno de Pluspetrol.</strong>
+      <strong>EDGE SA no requiere acceso remoto al ambiente interno.</strong>
       Toda la comunicación es iniciada por los dispositivos de campo o los usuarios hacia la
-      infraestructura de EDGE SA. No se requiere abrir puertos entrantes en la red de Pluspetrol,
+      infraestructura de EDGE SA. No se requiere abrir puertos entrantes en la red,
       solo los siguientes puertos salientes:
       <ul style="margin-top:8px">
         <li><strong>443 (HTTPS/TLS):</strong> App móvil, dashboard web y comunicaciones con el backend.</li>
@@ -348,7 +348,7 @@
     </p>
     <p>
       Esta política podrá actualizarse para reflejar cambios en las prácticas o la normativa aplicable.
-      Los cambios materiales serán comunicados a Pluspetrol con antelación razonable.
+      Los cambios materiales serán comunicados al cliente con antelación razonable.
     </p>
 
     <!-- ══════════════════════════════════════ -->
