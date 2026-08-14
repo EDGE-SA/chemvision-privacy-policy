@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Política de Privacidad y Seguridad de Datos — Sistema de Gestión de Tratamientos Químicos</title>
+    <style>
+      *, *::before, *::after { box-sizing: border-box; }
+      body {
+        font-family: Arial, sans-serif;
+        max-width: 900px;
+        margin: 40px auto;
+        padding: 0 24px 60px;
+        line-height: 1.75;
+        color: #222;
+        background: #fff;
+      }
+      h1 { font-size: 1.9em; margin-bottom: 0.2em; }
+      .updated { color: #666; font-size: 0.9em; margin-top: 0; }
+      h2 {
+        font-size: 1.3em;
+        margin-top: 2.2em;
+        border-bottom: 1px solid #e0e0e0;
+        padding-bottom: 0.3em;
+        color: #1a1a2e;
+      }
+      h3 { font-size: 1.05em; margin-top: 1.5em; color: #333; }
+      a { color: #1a73e8; }
+      ul { padding-left: 1.6em; }
+      li { margin-bottom: 0.4em; }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 1em 0;
+        font-size: 0.93em;
+      }
+      th, td {
+        border: 1px solid #ddd;
+        padding: 10px 14px;
+        text-align: left;
+        vertical-align: top;
+      }
+      th { background: #f5f5f5; font-weight: bold; }
+      tr:nth-child(even) td { background: #fafafa; }
+      .highlight {
+        background: #f0f7ff;
+        border-left: 4px solid #1a73e8;
+        padding: 12px 16px;
+        margin: 1em 0;
+        border-radius: 0 4px 4px 0;
+      }
+      .warn {
+        background: #fff8e1;
+        border-left: 4px solid #f9a825;
+        padding: 12px 16px;
+        margin: 1em 0;
+        border-radius: 0 4px 4px 0;
+      }
+      footer {
+        margin-top: 3em;
+        font-size: 0.85em;
+        color: #888;
+        border-top: 1px solid #eee;
+        padding-top: 1em;
+      }
+    </style>
+  </head>
+  <body>
+
+    <h1>Política de Privacidad y Seguridad de Datos</h1>
+    <p><strong>Sistema de Gestión de Tratamientos Químicos — Pluspetrol</strong></p>
+    <p class="updated">Última actualización: agosto de 2026</p>
+
+    <p>
+      Este documento describe cómo <strong>EDGE SA</strong> ("la Empresa", "Nosotros") recopila,
+      procesa, almacena y protege los datos en el contexto del sistema de gestión de tratamientos
+      químicos operado para <strong>Pluspetrol</strong>. El sistema incluye la aplicación móvil
+      QuickCheck, el dashboard web, la plataforma IoT backend, la infraestructura cloud y los
+      dispositivos de telemetría de campo.
+    </p>
+
+    <div class="highlight">
+      <strong>Resumen:</strong> El sistema es una plataforma IoT industrial de telemetría,
+      dosificación y mantenimiento. Los únicos datos personales almacenados son las credenciales
+      de acceso de los usuarios autorizados (nombre, email, rol). Todos los demás datos son
+      operativos e industriales. La infraestructura está alojada en un entorno dedicado
+      exclusivamente a Pluspetrol, sin compartir datos con otros clientes de EDGE SA.
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>1. Quiénes somos</h2>
+    <p>
+      <strong>EDGE SA</strong><br/>
+      Carlos Roque 3545, Argentina<br/>
+      Email: <a href="mailto:info@edgeinst.com.ar">info@edgeinst.com.ar</a><br/>
+      Sitio web: <a href="https://edgeinst.com.ar" target="_blank">https://edgeinst.com.ar</a>
+    </p>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>2. Alcance del sistema</h2>
+    <p>Esta política aplica a todos los componentes del sistema integrado:</p>
+    <table>
+      <thead>
+        <tr><th>Componente</th><th>Descripción</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Aplicación móvil QuickCheck</strong></td>
+          <td>App para técnicos y operadores de campo. Permite cargar reportes de mantenimiento, checklists, datos de válvulas de seguridad, reposiciones y escaneo QR de equipos. Disponible para iOS y Android.</td>
+        </tr>
+        <tr>
+          <td><strong>Dashboard web</strong></td>
+          <td>Interfaz de monitoreo en tiempo real para supervisores. Visualiza telemetría, alertas, estadísticas y reportes históricos. Acceso por navegador web.</td>
+        </tr>
+        <tr>
+          <td><strong>Backend IoT (Losant)</strong></td>
+          <td>Plataforma middleware que gestiona la ingesta de telemetría, autenticación de usuarios, alertas automáticas, cálculos derivados y base de datos de dispositivos. Instancia dedicada a Pluspetrol.</td>
+        </tr>
+        <tr>
+          <td><strong>Infraestructura cloud (GCP)</strong></td>
+          <td>Almacena la telemetría histórica, los últimos reportes por dispositivo y expone servicios de exportación y reportes. Proyecto dedicado exclusivamente a Pluspetrol.</td>
+        </tr>
+        <tr>
+          <td><strong>Dispositivos de campo</strong></td>
+          <td>Sensores industriales que miden nivel de tanque, presión, caudal, dosificación, batería y señal. Se comunican vía 4G o satélite según la cobertura disponible en campo.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>3. Datos que el sistema recopila</h2>
+
+    <h3>3.1 Datos de usuarios (datos personales)</h3>
+    <p>El sistema almacena únicamente los datos estrictamente necesarios para autenticación y trazabilidad operativa:</p>
+    <ul>
+      <li><strong>Nombre completo y email corporativo:</strong> Pre-registrados por EDGE SA. Se utilizan para autenticación, asignación de rol y asociación de reportes con el técnico responsable.</li>
+      <li><strong>Rol asignado:</strong> Determina las vistas y acciones disponibles en la app y el dashboard. Embebido en el token de sesión al momento del login.</li>
+      <li><strong>Token de sesión:</strong> Almacenado de forma cifrada en el dispositivo móvil durante la sesión activa. Eliminado al cerrar sesión o desinstalar la app.</li>
+    </ul>
+
+    <h3>3.2 Datos de telemetría industrial (datos operativos)</h3>
+    <p>Generados automáticamente por los dispositivos de campo. No contienen información personal. Incluyen: nivel de tanque por canal, presión, caudal, estado de batería, nivel de señal y estado de conexión de cada dispositivo.</p>
+
+    <h3>3.3 Datos de reportes de mantenimiento</h3>
+    <p>Generados por los técnicos a través de la app móvil:</p>
+    <ul>
+      <li>Checklists de inspección de equipos (estado de válvulas, contenedores, conexiones, etiquetas, etc.).</li>
+      <li>Datos de válvulas de seguridad (presión de apertura, estado, fecha de revisión).</li>
+      <li>Reportes de reposición de producto químico.</li>
+      <li>Información de dosificación por punto de tratamiento.</li>
+      <li>Coordenadas GPS del lugar donde se realizó cada tarea (solo mientras la app está en uso).</li>
+    </ul>
+
+    <h3>3.4 Datos de configuración de dispositivos</h3>
+    <p>Parámetros técnicos de calibración de los sensores (coeficientes de tanque, offsets, umbrales de alarma). Se almacenan en el backend IoT y se actualizan automáticamente de forma periódica.</p>
+
+    <h3>3.5 Alertas y estadísticas operativas</h3>
+    <ul>
+      <li><strong>Alertas:</strong> Registro de alarmas activas y resueltas por dispositivo (niveles críticos, desconexiones, fallos). Se envían por email al equipo operativo.</li>
+      <li><strong>Estadísticas de uso:</strong> Métricas diarias de actividad del sistema para análisis operativo interno.</li>
+    </ul>
+
+    <h3>3.6 Datos que el sistema NO recopila</h3>
+    <ul>
+      <li>Datos de contacto personal no vinculados a la entidad corporativa.</li>
+      <li>Información financiera o de pago.</li>
+      <li>Ubicación en segundo plano (background location).</li>
+      <li>Audio, video o imágenes almacenadas.</li>
+      <li>Datos de comportamiento para publicidad o perfilado.</li>
+    </ul>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>4. Cómo se usan los datos</h2>
+    <ul>
+      <li>Autenticación de usuarios y control de acceso basado en roles (RBAC).</li>
+      <li>Monitoreo en tiempo real de dispositivos de campo.</li>
+      <li>Cálculo automático de métricas derivadas (presión, caudal diario, columna de agua).</li>
+      <li>Almacenamiento histórico de telemetría para análisis y auditoría.</li>
+      <li>Gestión y trazabilidad de reportes de mantenimiento.</li>
+      <li>Acceso rápido al último reporte por dispositivo mediante código QR.</li>
+      <li>Envío de alertas automáticas ante eventos críticos.</li>
+      <li>Generación de reportes operativos periódicos.</li>
+      <li>Exportación de datos históricos a solicitud del cliente.</li>
+    </ul>
+    <p>Los datos <strong>no se utilizan</strong> para publicidad, perfilado conductual ni ninguna finalidad ajena a la operación industrial del sistema.</p>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>5. Aislamiento de datos por cliente</h2>
+    <div class="highlight">
+      La infraestructura cloud y la instancia del backend IoT son <strong>dedicadas exclusivamente
+      a Pluspetrol</strong>. Los datos de Pluspetrol no se comparten ni mezclan con los de otros
+      clientes de EDGE SA. El acceso está restringido por rol a nivel de token de sesión: cada
+      usuario solo puede ver y operar los datos correspondientes a su perfil.
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>6. Proveedores de servicios terceros</h2>
+
+    <h3>Losant IoT Platform</h3>
+    <p>
+      Plataforma IoT utilizada como backend middleware. Opera sobre infraestructura cloud en Estados Unidos.
+      Política de privacidad: <a href="https://www.losant.com/privacy" target="_blank">losant.com/privacy</a>.
+    </p>
+
+    <h3>Google Cloud Platform (GCP)</h3>
+    <p>
+      Utilizado para almacenamiento histórico, últimos reportes y servicios REST. Google actúa como
+      procesador de datos y cumple con GDPR. Todos los datos están cifrados en reposo (AES-256) y en
+      tránsito (TLS 1.2/1.3). Región: <strong>us-central1, Iowa, Estados Unidos</strong>.
+      Política: <a href="https://cloud.google.com/privacy" target="_blank">cloud.google.com/privacy</a>.
+    </p>
+
+    <h3>Myriota (conectividad satelital)</h3>
+    <p>
+      Proveedor de conectividad satelital para dispositivos en zonas sin cobertura 4G. Los mensajes
+      de telemetría se transmiten cifrados y son autenticados mediante JWT al recibirlos en el backend.
+    </p>
+
+    <p>No se utilizan SDKs de publicidad, analítica de terceros ni librerías de tracking.</p>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>7. Seguridad y cifrado</h2>
+
+    <h3>7.1 Datos en tránsito</h3>
+    <ul>
+      <li><strong>HTTPS / TLS 1.2–1.3:</strong> Todas las comunicaciones entre la app móvil, el dashboard web y el backend.</li>
+      <li><strong>MQTT sobre TLS (puerto 8883):</strong> Telemetría de dispositivos 4G hacia el backend.</li>
+      <li><strong>Webhook HTTPS autenticado:</strong> Mensajes satelitales hacia el backend.</li>
+    </ul>
+
+    <h3>7.2 Datos en reposo</h3>
+    <ul>
+      <li><strong>Infraestructura GCP:</strong> Cifrado AES-256 nativo gestionado por Google Cloud Key Management.</li>
+      <li><strong>Backend Losant:</strong> Cifrado en reposo según infraestructura del proveedor.</li>
+      <li><strong>Dispositivo móvil:</strong> Credenciales cifradas a nivel de hardware. Reportes offline en base de datos local cifrada.</li>
+    </ul>
+
+    <h3>7.3 Control de acceso</h3>
+    <ul>
+      <li>Autenticación por usuario y contraseña. Las contraseñas se almacenan con hash.</li>
+      <li>Tokens de sesión con tiempo de expiración. Re-autenticación requerida al expirar.</li>
+      <li>RBAC embebido en el token: cada rol accede solo a las funciones y datos que le corresponden.</li>
+      <li>Acceso a infraestructura cloud restringido al equipo técnico de EDGE SA.</li>
+    </ul>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>8. Conectividad y modo sin conexión</h2>
+    <p>
+      Los dispositivos de campo operan con conectividad <strong>4G</strong> o <strong>satelital</strong>.
+      El sistema detecta automáticamente la desconexión y genera alertas al equipo operativo.
+    </p>
+    <p>
+      La app móvil dispone de <strong>modo offline</strong>: los reportes se almacenan localmente
+      y se sincronizan automáticamente cuando se restablece la conectividad (<em>store &amp; forward</em>).
+    </p>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>9. Retención de datos</h2>
+    <table>
+      <thead>
+        <tr><th>Tipo de dato</th><th>Retención</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Telemetría histórica</td><td>Indefinida</td></tr>
+        <tr><td>Reportes de mantenimiento</td><td>Indefinida (mínimo 5 años por obligaciones regulatorias industriales)</td></tr>
+        <tr><td>Último reporte por dispositivo</td><td>Actualizado en cada nuevo reporte (retención indefinida)</td></tr>
+        <tr><td>Estado de dispositivos en backend IoT</td><td>180 días (parámetros críticos se actualizan automáticamente para evitar pérdida)</td></tr>
+        <tr><td>Tokens de sesión</td><td>Duración de la sesión activa. Eliminados al cerrar sesión o desinstalar la app.</td></tr>
+        <tr><td>Logs de infraestructura cloud</td><td>30 días por defecto (configurable)</td></tr>
+        <tr><td>Logs de diagnóstico de la app</td><td>Hasta 24 meses</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>10. Exportación y eliminación de datos</h2>
+    <p>
+      El sistema permite exportar la totalidad de los datos históricos en formato estructurado
+      (CSV/JSON) a solicitud del cliente.
+    </p>
+    <p>Ante la finalización del acuerdo con Pluspetrol:</p>
+    <ul>
+      <li>Se entregará el dataset completo en formato exportable antes del borrado definitivo.</li>
+      <li>Las cuentas de usuario serán desactivadas de forma inmediata y eliminadas dentro de los 24 meses siguientes, salvo obligación legal de retención mayor.</li>
+      <li>Los datos en la infraestructura cloud y el backend IoT serán eliminados según el procedimiento acordado.</li>
+    </ul>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>11. Transferencias internacionales de datos</h2>
+    <p>Los datos son procesados y almacenados en servidores ubicados fuera de Argentina:</p>
+    <ul>
+      <li><strong>Google Cloud Platform:</strong> Región us-central1, Iowa, Estados Unidos.</li>
+      <li><strong>Losant IoT Platform:</strong> Infraestructura en Estados Unidos.</li>
+    </ul>
+    <p>
+      Ambos proveedores cuentan con acuerdos de procesamiento de datos y salvaguardas contractuales
+      equivalentes a las exigidas por la normativa aplicable.
+    </p>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>12. Acceso remoto al ambiente de Pluspetrol</h2>
+    <div class="warn">
+      <strong>EDGE SA no requiere acceso remoto al ambiente interno de Pluspetrol.</strong>
+      Toda la comunicación es iniciada por los dispositivos de campo o los usuarios hacia la
+      infraestructura de EDGE SA. No se requiere abrir puertos entrantes en la red de Pluspetrol,
+      solo los siguientes puertos salientes:
+      <ul style="margin-top:8px">
+        <li><strong>443 (HTTPS/TLS):</strong> App móvil, dashboard web y comunicaciones con el backend.</li>
+        <li><strong>8883 (MQTT/TLS):</strong> Telemetría de dispositivos 4G de campo.</li>
+      </ul>
+    </div>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>13. Permisos de la aplicación móvil</h2>
+    <table>
+      <thead>
+        <tr><th>Permiso</th><th>Motivo</th><th>Cuándo se usa</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Cámara</strong></td>
+          <td>Escaneo de códigos QR en equipos industriales para identificación y prellenado de formularios. No se almacenan imágenes.</td>
+          <td>Solo al abrir el escáner QR.</td>
+        </tr>
+        <tr>
+          <td><strong>Ubicación precisa</strong></td>
+          <td>Registro de coordenadas GPS de cada tarea de mantenimiento para trazabilidad operativa.</td>
+          <td>Solo mientras la app está en primer plano y una tarea está activa.</td>
+        </tr>
+        <tr>
+          <td><strong>Vibración</strong></td>
+          <td>Feedback háptico al confirmar acciones.</td>
+          <td>Al confirmar acciones dentro de la app.</td>
+        </tr>
+        <tr>
+          <td><strong>Tareas en segundo plano</strong></td>
+          <td>Sincronización de reportes pendientes cuando se restablece la conectividad tras uso offline.</td>
+          <td>Periódicamente en background cuando hay reportes pendientes.</td>
+        </tr>
+        <tr>
+          <td><strong>Audio</strong></td>
+          <td>Reproducción de sonido de confirmación al escanear QR. Sin grabación ni acceso a micrófono.</td>
+          <td>Al completar un escaneo QR exitoso.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>14. Derechos de los usuarios</h2>
+    <p>Los usuarios del sistema tienen derecho a:</p>
+    <ul>
+      <li><strong>Acceder</strong> a los datos personales que el sistema tiene sobre ellos.</li>
+      <li><strong>Corregir</strong> datos inexactos o incompletos.</li>
+      <li><strong>Solicitar la eliminación</strong> de sus datos personales (sujeto a obligaciones legales de retención).</li>
+      <li><strong>Oponerse o restringir</strong> determinados tratamientos de datos.</li>
+      <li><strong>Revocar permisos</strong> de ubicación y cámara en cualquier momento desde los ajustes del dispositivo.</li>
+    </ul>
+    <p>Para ejercer estos derechos: <a href="mailto:info@edgeinst.com.ar">info@edgeinst.com.ar</a></p>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>15. Actualizaciones del sistema y esta política</h2>
+    <p>
+      Las actualizaciones del backend y la infraestructura se despliegan sin interrupción del servicio.
+      La app móvil se actualiza a través de las tiendas oficiales (Google Play / App Store).
+    </p>
+    <p>
+      Esta política podrá actualizarse para reflejar cambios en las prácticas o la normativa aplicable.
+      Los cambios materiales serán comunicados a Pluspetrol con antelación razonable.
+    </p>
+
+    <!-- ══════════════════════════════════════ -->
+    <h2>16. Contacto</h2>
+    <ul>
+      <li>Email: <a href="mailto:info@edgeinst.com.ar">info@edgeinst.com.ar</a></li>
+      <li>Sitio web: <a href="https://edgeinst.com.ar" target="_blank">https://edgeinst.com.ar</a></li>
+      <li>Dirección: EDGE SA, Carlos Roque 3545, Argentina</li>
+    </ul>
+
+    <footer>
+      &copy; 2026 EDGE SA &mdash; Sistema de Gestión de Tratamientos Químicos &mdash; Pluspetrol &mdash; App: com.edgesa.quickcheckapp
+    </footer>
+
+  </body>
+</html>
